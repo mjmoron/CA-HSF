@@ -38,7 +38,7 @@ typedef  char  Orientation_4_adj_type;
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <windows.h>
+//#include <windows.h>
 
 
 #include <opencv2/highgui/highgui.hpp>
@@ -98,10 +98,6 @@ typedef int RowColType;
 #define INEXISTENT_AFF_TREE (0)
 
 
-/////////////// macros.h 
-#define and(X,Y)  (X && Y)
-#define or(X,Y)   (X || Y)
-#define not(X)   (!X)
 
 #define row_ind(X) ( (X-1)%n_rows)
 #define col_ind(X) ( (X-1)/n_rows)

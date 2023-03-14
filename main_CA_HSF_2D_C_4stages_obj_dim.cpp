@@ -34,16 +34,11 @@ int num_th;
 ////////////////////
 
 #include "CA_HSF_2D_C_4stages_obj_dim.h"
-
+#include <unistd.h>
 
 
 using namespace std;
 using namespace cv;
-
-
-//#include "opencv/cv.h"
-//#include "opencv/highgui.h"
-#include <direct.h>
 
 
 int n_rows = 6;
@@ -543,7 +538,7 @@ ImageType **loadSynthIm(string path) {
 int main(int argc, char** argv) {
 
 	string fname;
-	boolean synthetic = false;
+	bool synthetic = false;
 	int num_repet = MIN_NOF_REPETITIONS;
 	
 	if (argc >= 2)
@@ -567,8 +562,8 @@ int main(int argc, char** argv) {
 
 	void 	ca_preliminars(int* nof_cells_per_nxel, int* nof_bound_neigh, int* nof_cobound_neigh, int** ext_first_row_of_cells, int** ext_first_col_of_cells, int*** bound_position_numb, int*** cobound_position_numb, int*** cobound_row_increm, int*** cobound_col_increm,int*** increm_boundary_neigh_row, int*** increm_boundary_neigh_col, int*** increm_coboundary_neigh_row, int*** increm_coboundary_neigh_col);
 
-	void printing_machine_info(void);
-	printing_machine_info();
+	//void printing_machine_info(void);
+	//printing_machine_info();
 
 	
 	Mat1b  image_gray;
@@ -597,20 +592,15 @@ int main(int argc, char** argv) {
 	{
 
 		Mat img_color;
-		char* cwd = _getcwd(NULL, 0);
-		fname = "\\" + fname;
+		string cdir=get_current_dir_name();
+		fname = "//" + fname;
 		
 		
-		if (!get_and_convert_into_grayscale_img(cwd + fname, image_gray)) {
+		if (!get_and_convert_into_grayscale_img(cdir + fname, image_gray)) {
 			std::cout << "Unable to check on '" + fname + "', file does not exist" << endl;
-			free(cwd);
 			exit(0);
 		}	
 		
-		free(cwd);
-		//std::cout << "  -- Matrix size r,c = " << image_gray.rows << ", " << image_gray.cols << endl;
-
-
 		n_rows = image_gray.rows;
 		n_cols = image_gray.cols;
 		cv::imshow("Image",image_gray);
@@ -759,7 +749,7 @@ This is to codify the hole condition in this crit_cell_nof_cob instead of defini
 
 
 /////////////////////////////////
-
+/*
 void printing_machine_info(void) {
 
 	int CPUInfo[4] = { -1 };
@@ -791,5 +781,5 @@ void printing_machine_info(void) {
 	GlobalMemoryStatusEx(&statex);
 	std::cout << "Total System Memory: " << (statex.ullTotalPhys / 1024) / 1024 << "MB" << endl;
 }
-
+*/
 ///////////////////////////
