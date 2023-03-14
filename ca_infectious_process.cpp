@@ -1,4 +1,6 @@
-// Copyright(c) 2021 Fernando Diaz del Rio and Pedro Real Jurado
+// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fernández, José-Luis Guisado-Lizar, Senior Member,D. Cagigas-Muñiz, Pedro Real Jurado
+// Submited to TRANSACTIONS ON IMAGE PROCESSING:
+// Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
 // Dpto ATC: www.atc.us.es and Dpto MA1 www.ma1.us.es
 // University of Seville.
 // All rights reserved.
@@ -13,7 +15,7 @@
 // this list of conditions and the following disclaimer in the documentation
 // and / or other materials provided with the distribution.
 // 
-// * Neither the name of CCLHSF nor the names of its
+// * Neither the name of CA-HSF nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 // 
@@ -232,59 +234,10 @@ void ca_infectious_process(ImageType **I, int	total_nof_cells_ext, int* nof_cell
 
 			} //end // end of for c = 1 : nof_cells_per_nxel(k + 1] // for each cell of dim k in a nxel
 		} //end of  if (k_k1_tree > 1) 
-	/*
-		////
-
-	if (k_k1_tree >1)
-		// k-2 CELLS
-		k = k_k1_tree-2;
-		for c = 1:nof_cells_per_nxel (k+1)  //for each position in a nxel (of k-cell  )
-			first_row = ext_first_row_of_cells (k+1,c);
-			first_col = ext_first_col_of_cells (k+1,c);
-
-			for col=first_col:2:(size_ext_acc(2)-2)
-				for row=first_row:2:(size_ext_acc(1)-2)
-%					ending_k2_cells;
-					ending_k2_cells_only_tail_cells;
-
-				end
-			end
-		end // end of for c = 1:nof_cells_per_nxel (k+1)  //for each cell of dim k in a nxel
-
-	end //end of  if (k_k1_tree > 1)
-
-		//// plotting
-		step_counter(k_k1_tree) = step;
-	step_total = step_total + step;
-
-	if dim_I == 2 && DEBUG_PLOTS >= 1
-		// DEBUG
-		f_ca_plot2D_image(I, FIG_IMAGE_AND_HSF + step_total);
-	f_ca_plot2D_primal_vectors(ext_s_k, FIG_IMAGE_AND_HSF + step_total);
-	f_ca_bookkeep_dual_vectors();
-	f_ca_plot2D_dual_vectors(ext_u_k, FIG_IMAGE_AND_HSF + step_total);
-
-	end
-
-		end // end  of for k = 0:dim_I - 1
-		*/
-
 
 	} //end of for
 
 
-	/* if synth_real == 1
-		if (DEBUG_PLOTS == 0)
-			f_ca_plot2D_image(I, FIG_IMAGE_AND_HSF + step_total);
-	f_ca_plot2D_primal_vectors(ext_s_k, FIG_IMAGE_AND_HSF + step_total);
-	f_ca_bookkeep_dual_vectors();
-	f_ca_plot2D_dual_vectors(ext_u_k, FIG_IMAGE_AND_HSF + step_total);
-	end
-		f_ca_plot2D_critical_cells(ext_aff_tree, FIG_IMAGE_AND_HSF + step_total);
-			else
-				f_ca_plot2D_critical_cells_Ireal(ext_aff_tree, FIG_IMAGE_AND_HSF + step_total);
-	end
-	*/
 
 
 }

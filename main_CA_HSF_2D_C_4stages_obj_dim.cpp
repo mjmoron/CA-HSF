@@ -1,9 +1,34 @@
-////////////////////
-// for testing and debugging purposes. 
-////////////////////
-
-////////////// global
-// nof threads
+// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fernández, José-Luis Guisado-Lizar, Senior Member,D. Cagigas-Muñiz, Pedro Real Jurado
+// Submited to TRANSACTIONS ON IMAGE PROCESSING:
+// Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
+// Dpto ATC: www.atc.us.es and Dpto MA1 www.ma1.us.es
+// University of Seville.
+// All rights reserved.
+// 
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met :
+// 
+// *Redistributions of source code must retain the above copyright notice, this
+// list of conditions and the following disclaimer.
+// 
+// * Redistributions in binary form must reproduce the above copyright notice,
+// this list of conditions and the following disclaimer in the documentation
+// and / or other materials provided with the distribution.
+// 
+// * Neither the name of CA-HSF nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+// 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+// DISCLAIMED.IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+// DAMAGES(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+// OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 int num_th;
 ////////////////////
 ////////////////////
@@ -66,19 +91,6 @@ int** ext_first_col_of_cells;// [dim_I + 1] [MAX_NOF_K_CELLS] ;
 
 int size_ext_acc[dim_I]; // = size(ext_acc_init);
 
-
-#ifdef DEBUG_PRINT_INNER_MATRIXES
-int** kkI;
-int** kkIcont;
-
-int** kkJ2;
-int** kkJ3;
-int** kkJ3fused ;
-int** kkJ4 ;
-int** kkL;
-
-#endif
-
 int** ext_acc;
 int** ext_acc_init; // size_acc + 4
 Orientation_4_adj_type** ext_being_tail;// = ZEROS(size_ext_acc);
@@ -115,13 +127,7 @@ ImageType** I;
 
 void createBidimArrays();
 /////////////////////
-int simple_CCL_checking(const cv::Mat1b& img, cv::Mat1i& previous_labels) {
-	//simple_labels = cv::Mat1i(img.size(), -1);
-	//@@ ya no es binario
-
-	return 0;
-}
-///////////////////////
+////////////////////
 // Get binary image given a image's FileName; 
 bool getBinaryImage(const string FileName, cv::Mat1b& binaryMat) {
 
@@ -209,26 +215,7 @@ void createBidimArrays()
 	ext_t_k = new Orientation_4_adj_type* [n_rows_ext];// [n_rows_ext] [n_cols_ext] ; //cobound of the k -1 cell for a primal vector
 
 	ext_obj_dim_belonging = new Orientation_4_adj_type* [n_rows_ext];//[n_rows_ext][n_cols_ext];
-	#ifdef DEBUG_PRINT_INNER_MATRIXES
-		kkI = new int* [n_rows]; //[n_rows] [n_cols] ;
-		kkIcont = new int* [(2 * n_rows + 1)]; //[2 * n_rows + 1] [2 * n_cols + 1] ;
-
-		kkJ2 = new int* [(2 * n_rows + 1)];// [2 * n_rows + 1] [2 * n_cols + 1] ;
-		kkJ3 = new int* [(2 * n_rows + 1)];//[2 * n_rows + 1][2 * n_cols + 1];
-		kkJ3fused = new int* [(2 * n_rows + 1)];//[2 * n_rows + 1][2 * n_cols + 1];
-		kkJ4 = new int* [(2 * n_rows + 1)];//[2 * n_rows + 1][2 * n_cols + 1];
-		kkL = new int* [(2 * n_rows + 1)];//[2 * n_rows + 1][2 * n_cols + 1];
-		for (int i = 0; i < n_rows; i++) {
-			kkI[i] = new int[n_cols]();
-			kkIcont[i] = new int[2 * n_cols + 1]();
-			kkJ2[i] = new int [2 * n_cols + 1]();
-			kkJ3[i] = new int [2 * n_cols + 1]();
-			kkJ3fused[i] = new int [2 * n_cols + 1]();
-			kkJ4[i] = new int [2 * n_cols + 1]();
-			kkL[i] = new int [2 * n_cols + 1]();
-		}
-
-	#endif
+	
 
 	for (int i = 0; i < n_rows_ext; i++) {
 		ext_acc[i] = new int[n_cols_ext]();// [n_rows_ext] [n_cols_ext] ;
@@ -458,25 +445,6 @@ void DeleteArrasys() {
 	delete[] ext_obj_dim_belonging;
 	delete[] I;
 	
-#ifdef DEBUG_PRINT_INNER_MATRIXES
-		for (int i = 0; i < n_rows; i++) {
-			delete[] kkI[i];
-			delete[] kkIcont[i];
-			delete[] kkJ2[i];
-			delete[] kkJ3[i];
-			delete[] kkJ3fused[i];
-			delete[] kkJ4[i];
-			delete[] kkL[i];
-
-		}
-	delete[] kkI;
-	delete[] kkIcont;
-	delete[] kkJ2;
-	delete[] kkJ3;
-	delete[] kkJ3fused;
-	delete[] kkJ4;
-	delete[] kkL;
-#endif
 	
 	delete[] nof_cells_per_nxel;
 	delete[] nof_bound_neigh;
@@ -563,7 +531,7 @@ ImageType **loadSynthIm(string path) {
 		}
 		else
 		{
-			std::cout << "Fichero no encontrado" << endl;
+			std::cout << "File not Found!" << endl;
 			exit(-1);
 		}
 		n_rows = nr;
@@ -585,16 +553,16 @@ int main(int argc, char** argv) {
 	}
 	else
 	{
-		std::cout << "Introduzca el nombre del fichero: ";
+		std::cout << "Insert file name: ";
 		std::cin >> fname;
 	}
 	if (fname.find(".txt")!= std::string::npos)
 	{
 		synthetic = true;
-		cout << "Imagen sintética a cargar desde fichero" << endl;
+		cout << "Loading synthetic image from file " << endl;
 	}
 	else
-		cout << "Imagen real a cargar desde fichero" << endl;
+		cout << "Loading real image from file " << endl;
 
 
 	void 	ca_preliminars(int* nof_cells_per_nxel, int* nof_bound_neigh, int* nof_cobound_neigh, int** ext_first_row_of_cells, int** ext_first_col_of_cells, int*** bound_position_numb, int*** cobound_position_numb, int*** cobound_row_increm, int*** cobound_col_increm,int*** increm_boundary_neigh_row, int*** increm_boundary_neigh_col, int*** increm_coboundary_neigh_row, int*** increm_coboundary_neigh_col);
@@ -631,31 +599,13 @@ int main(int argc, char** argv) {
 		Mat img_color;
 		char* cwd = _getcwd(NULL, 0);
 		fname = "\\" + fname;
-		//get_color_img(/*cwd + fname*/"C:\\Work\\CA - HSF\\CA_HSF_2D_C_4stages_obj_dim_LIMPIO\\coffee.png", img_color))
-		/*if (!get_color_img(cwd + fname, img_color)) {
-			std::cout << "Unable to check on '" + fname + "', file does not exist" << endl;
-			free(cwd);
-			exit(0);
-		}*/
-		/*if (!get_grayscale_img(cwd + fname, image_gray)) {
-			std::cout << "Unable to check on '" +fname + "', file does not exist" << endl;
-			free(cwd);
-			exit(0);
-		}*/
+		
 		
 		if (!get_and_convert_into_grayscale_img(cwd + fname, image_gray)) {
 			std::cout << "Unable to check on '" + fname + "', file does not exist" << endl;
 			free(cwd);
 			exit(0);
-		}
-		//image_gray = Mat1b(img_color.size());
-		//cvtColor(img_color, image_gray, cv::COLOR_BGR2GRAY);
-
-		/*
-		if (!getBinaryImage(cwd + fname, image_gray))  {
-			cout << "Unable to check on '" + fname + "', file does not exist" << endl;
-			exit(0);
-		}*/
+		}	
 		
 		free(cwd);
 		//std::cout << "  -- Matrix size r,c = " << image_gray.rows << ", " << image_gray.cols << endl;
@@ -668,15 +618,7 @@ int main(int argc, char** argv) {
 		destroyAllWindows();
 
 		I = new  ImageType * [n_rows];
-
-		/*for (int r = 0; r < n_rows; r++) {
-			I[r] = new  ImageType[n_cols]();
-			unsigned char* p = image_gray.data + r;
-			for (int c = 0; c < n_cols; c++) {
-				I[r][c] = *(p + c);
-			}
-		}*/
-		
+	
 
 		for (int r = 0; r < n_rows; r++) {
 			I[r] = new  ImageType[n_cols]();
@@ -689,12 +631,7 @@ int main(int argc, char** argv) {
 	std::cout << "------------Testing Image : ------------ " << fname.c_str() << endl;
 	std::cout << "ROWS: " << n_rows << endl;
 	std::cout << "COLS:" << n_cols << endl;
-	/*for (int r = 0; r < n_rows; r++) {
-		for (int c = 0; c < n_cols; c++) {
-			printf("%02x ", I[r][c]);
-		}
-		cout << endl;
-	}*/
+	
 	createBidimArrays();
 	
 	
@@ -730,19 +667,14 @@ int main(int argc, char** argv) {
 
 		}  //end of for (int rep = 0; rep < num_repet; rep++)
 
-/*		void counting_crit_cells(Orientation_4_adj_type ext_aff_tree[][n_cols_ext], int *);
-		int nof_crit_cells[dim_I + 1];
-		counting_crit_cells(ext_aff_tree, nof_crit_cells);
-	*/			void hgig_counting_crit_cells(int*);
+	void hgig_counting_crit_cells(int*);
 	int nof_crit_cells[dim_I + 1];
 	hgig_counting_crit_cells(nof_crit_cells);
 
 	printf(" nof_crit_cells 0,1,2: %u, %u, %u \n", nof_crit_cells[0], nof_crit_cells[1], nof_crit_cells[2]);
-	//		printf(" * nLabelsToControl: %u \n", nLabelsToControl);
-// printing the minimum time:
+
 	printf(" * Total minimum Time (%3d threads):  %lf \n", num_th, t_inc_min_complete);
-	//labeledImgToControl(4, 2) = 999;
-	//printf(" * nof errors : %u \n", simple_CCL_checking(image_gray, labeledImgToControl) );
+
 	}
 	
 	DeleteArrasys();

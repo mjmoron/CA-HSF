@@ -1,5 +1,8 @@
-// Copyright(c) 2018 Fernando Diaz del Rio
-//  Dpto ATC. www.atc.us.es 
+// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fernández, José-Luis Guisado-Lizar, Senior Member,D. Cagigas-Muñiz, Pedro Real Jurado
+// Submited to TRANSACTIONS ON IMAGE PROCESSING:
+// Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
+// Dpto ATC: www.atc.us.es and Dpto MA1 www.ma1.us.es
+// University of Seville.
 // All rights reserved.
 // 
 // Redistribution and use in source and binary forms, with or without
@@ -12,7 +15,7 @@
 // this list of conditions and the following disclaimer in the documentation
 // and / or other materials provided with the distribution.
 // 
-// * Neither the name of CCLHSF nor the names of its
+// * Neither the name of CA-HSF nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 // 
@@ -53,17 +56,10 @@ using namespace std;
 #define MIN_NOF_REPETITIONS  1// the minimun number of repetitions that the tests are done 
 
 //#define _INTERNAL_TIMER_STEP4
-#define  DEBUG_INNER_TIME_MEASUREMENT_CCLHSF_no
 #define  DEBUG_INNER_STATISTICS_no
-#define  DEBUG_DEBUG_INNER_TIME_MEASUREMENT_CCLHSF_TRANSPORTS_no
 
 #define M2C (1)  // a -1 is inserted in all indexations from 1 in MATLAB to 0 in C
 
-
-#ifdef DEBUG_SYNTHETIC_IMAGE
-#define DEBUG_PRINT_INNER_MATRIXES 
-//for debugging purposes . It is supposed that a N_ROWS_DEBUGxN_COLS_DEBUG  matrix is read and here their contents are changed
-#endif
 
 // nof threads
 extern int num_th;

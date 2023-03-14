@@ -1,4 +1,6 @@
-// Copyright(c) 2021 Fernando Diaz del Rio and Pedro Real Jurado
+// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fernández, José-Luis Guisado-Lizar, Senior Member,D. Cagigas-Muñiz, Pedro Real Jurado
+// Submited to TRANSACTIONS ON IMAGE PROCESSING:
+// Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
 // Dpto ATC: www.atc.us.es and Dpto MA1 www.ma1.us.es
 // University of Seville.
 // All rights reserved.
@@ -13,7 +15,7 @@
 // this list of conditions and the following disclaimer in the documentation
 // and / or other materials provided with the distribution.
 // 
-// * Neither the name of CCLHSF nor the names of its
+// * Neither the name of CA-HSF nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 // 
@@ -354,21 +356,4 @@ void 	ca_preliminars(int* nof_cells_per_nxel, int* nof_bound_neigh, int* nof_cob
 	//end
 
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////
-//1st stage
-#ifdef DEBUG_SYNTHETIC_IMAGE
-#endif
-#ifndef DEBUG_SYNTHETIC_IMAGE
-#endif
-
-#ifdef DEBUG_SYNTHETIC_IMAGE
-//void Jonly_transports(const cv::Mat1b &I, cv::Mat1i &J_CRIT);
-//void Jonly_transports_no_borders(const cv::Mat1b &I, int J_CRIT[n_rows][n_cols]);
-#endif
-#ifndef DEBUG_SYNTHETIC_IMAGE
-//void Jonly_transports(const cv::Mat1b &I, cv::Mat1i &J_CRIT);
-void Jonly_transports_no_borders(const cv::Mat1b &I, cv::Mat1i &J_CRIT);
-#endif
-
 
