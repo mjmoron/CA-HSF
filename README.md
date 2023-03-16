@@ -15,6 +15,8 @@
 ```
     ./CA_HSF coffee.png 5
 ```
+![Example of execution](CA-HSF.png)
+
 
 __NOTE__: When the image is loaded and shown, you have to close the image in order to continue the execution
 
