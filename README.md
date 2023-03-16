@@ -9,4 +9,4 @@
 
 -__Instructions__: Run make with the existent Makefile or modify according to your machine. 
 
--__Requirements__: This project requires OpenCv4 libraries
+-__Requirements__: This project requires OpenCv4 and OpenMP libraries
