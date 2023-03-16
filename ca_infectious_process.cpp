@@ -182,7 +182,7 @@ void ca_infectious_process(ImageType **I, int	total_nof_cells_ext, int* nof_cell
 					ppsum += (ext_acc_previous[i][j] != ext_acc[i][j]);
 				}
 			}
-			int kkkk = 99;
+		
 			/*
 			 //just a summatory of the changes in the CA to have an idea of the nof iterations of the CA :
 			 ext_acc_differences = (ext_acc ~= ext_acc_previous);

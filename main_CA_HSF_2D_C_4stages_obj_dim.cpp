@@ -571,17 +571,6 @@ int main(int argc, char** argv) {
 
 
 
-#define NOF_COLORS 2
-
-	int kk = 111;
-	//scanf("%d", &kk);
-	// filling  .data with rand() numbers to build a synthetic image 
-	srand(kk);  // this guarantees the same random matrix
-	/*for (RowColType r = 0; r < n_rows; r++) {
-		for (RowColType c = 0; c < n_cols; c++) {
-			I[r][c] = 1 + rand() % NOF_COLORS;
-		}
-	}*/
 	if (synthetic)
 	{
 		I = loadSynthIm(fname);
