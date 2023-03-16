@@ -7,7 +7,7 @@
 
 -__Submitted to__: TRANSACTIONS ON IMAGE PROCESSING
 
--__Instructions__: Run make with the existent Makefile or modify according to your machine. 
+-__Instructions__: Run make with the existent Makefile or modify it according to your machine. 
 
 -__Requirements__: This project requires OpenCv4 and OpenMP libraries
 
@@ -15,7 +15,7 @@
 
 -__Output__ : The output is the number of critical cells of each dimension and the minimum Time of a number of repetitions given by the constant MIN_NOF_REPETITIONS  
 
--__Options__ Additionally, the user can modify the following constants:  
+-__Options__ : Additionally, the user can modify the following constants:  
 
 - #define MIN_NOF_REPETITIONS  1 // the minimun number of repetitions that the tests are done 
   Please increase this MIN_NOF_REPETITIONS   to obtain more accurate timing results. 
