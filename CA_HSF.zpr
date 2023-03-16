@@ -19,7 +19,7 @@ current_source=ca_infectious_process.cpp
 path_char=/
 [source]
 path=ca_infectious_process.cpp
-cursor=392:21
+cursor=667:5
 open=true
 [source]
 path=CA_HSF_2D_C_4stages_obj_dim_func.cpp

@@ -659,16 +659,7 @@ void stage3_k_cells(int k,int* nof_cells_per_nxel, int** ext_acc, Orientation_4_
 						int col_bound_req = col + col_increm;
 
 						int cobound3_numb_grant = ext_t_k[row_bound_req][col_bound_req]; //the answer of the previously requested bound cell
-
-						//of course it must occur that v_nof_regions_bound == v3_k_nof_regions
-						if (ext_obj_dim_belonging[row][col] != ext_obj_dim_belonging[row_bound_req][col_bound_req])
-						{
-							int kk = 99;
-							// input('ERROR IN A REQUEST : Crtl-C to end');
-						}
-
-						//// in order to detect cycles a list of all cobound labels is required
-
+						
 						int nof3_valid_bounds = 0;
 						// we proceed to look for the max of the bounds, and to detect cycles
 
