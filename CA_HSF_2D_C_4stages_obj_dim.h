@@ -1,6 +1,6 @@
-// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fern·ndez, JosÈ-Luis Guisado-Lizar, Senior Member,D. Cagigas-MuÒiz, Pedro Real Jurado
+// Copyright(c) 2023 Fernando Diaz-del-Rio , P. Sanchez-Cuevas, M. J. Moron-Fern√°ndez, Jos√©-Luis Guisado-Lizar, Senior Member,D. Cagigas-Mu√±iz, Pedro Real Jurado
 // Submited to TRANSACTIONS ON IMAGE PROCESSING:
-// Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
+// TITLE: Fully Parallel Cellular Automata for Topological Analysis of Color Digital Images
 // Dpto ATC: www.atc.us.es and Dpto MA1 www.ma1.us.es
 // University of Seville.
 // All rights reserved.
