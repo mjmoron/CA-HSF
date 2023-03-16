@@ -17,11 +17,9 @@
 
 -__Options__ : Additionally, the user can modify the following constants:  
 
-- #define MIN_NOF_REPETITIONS  1 // the minimun number of repetitions that the tests are done
-  Please increase this MIN_NOF_REPETITIONS   to obtain more accurate timing results. 
+- #define MIN_NOF_REPETITIONS  1 // the minimun number of repetitions that the tests are done. Please increase this MIN_NOF_REPETITIONS   to obtain more accurate timing results. 
 
-- #define MAX_NUM_THREADS 8
-  Please change this MAX_NUM_THREADS  according to the number of threads that you want to test
+- #define MAX_NUM_THREADS 8. Please change this MAX_NUM_THREADS  according to the number of threads that you want to test
 
 - In addition, the OpenMP SCHEDULING can be modified by these constants:  
   #define _OMP_SCHEDULING dynamic 
